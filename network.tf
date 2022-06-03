@@ -77,7 +77,7 @@ resource "aws_route_table_association" "empoloyee-pprta" {
 
 resource "aws_security_group" "employee-sg" {
   name = "employee-sg"
-  vpc_id = aws_vpc.Precious_vpc.id
+  vpc_id = aws_vpc.employee-vpc.id
 
   egress {
     from_port        = 0
