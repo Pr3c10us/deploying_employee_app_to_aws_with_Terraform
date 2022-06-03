@@ -27,9 +27,9 @@ data "aws_iam_policy" "aws_dynamodb_fullaccess" {
 
 resource "aws_iam_role_policy_attachment" "S3DynamoDBFullAccessRole_policies_attachment" {
   for_each = {
-    "key1" = data.aws_iam_policy.aws_dynamodb_fullaccess
-    "key2" = data.aws_iam_policy.aws_s3_fullaccess
+    "key1" = "${data.aws_iam_policy.aws_dynamodb_fullaccess.arn}"
+    "key2" = "${data.aws_iam_policy.aws_s3_fullaccess.arn}"
   }
-  role = "${aws_iam_role.S3DynamoDBFullAccessRole}"
+  role = "${aws_iam_role.S3DynamoDBFullAccessRole.name}"
   policy_arn = each.value
 }
