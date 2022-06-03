@@ -19,7 +19,7 @@ resource "aws_internet_gateway" "employee-igw" {
 }
 
 resource "aws_subnet" "employee-subnet" {
-  vpc_id = aws_vpc.employee-vpc
+  vpc_id = aws_vpc.employee-vpc.id
   for_each = {
     "employee Public Subnet 1" = [ data.aws_availability_zones.available.names[0], "10.1.1.0/24" , true]
     "employee Public Subnet 2" = [ data.aws_availability_zones.available.names[1], "10.1.2.0/24" , true ]
@@ -37,7 +37,7 @@ resource "aws_subnet" "employee-subnet" {
 }
 
 resource "aws_route_table" "employee-prt" {
-  vpc_id = aws_vpc.employee-vpc
+  vpc_id = aws_vpc.employee-vpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -59,7 +59,7 @@ resource "aws_route_table_association" "empoloyee-prta" {
 }
 
 resource "aws_route_table" "employee-pprt" {
-  vpc_id = aws_vpc.employee-vpc
+  vpc_id = aws_vpc.employee-vpc.id
 
   tags = {
     "Name" = "employee-pprt"
