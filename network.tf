@@ -66,7 +66,7 @@ resource "aws_route_table" "employee-pprt" {
   }
 }
 
-resource "aws_route_table_association" "empoloyee-prta" {
+resource "aws_route_table_association" "empoloyee-pprta" {
   for_each = {
     "employee Private Subnet 1" = aws_subnet.employee-subnet["employee Private Subnet 1"].id
     "employee Private Subnet 2" = aws_subnet.employee-subnet["employee Private Subnet 2"].id
