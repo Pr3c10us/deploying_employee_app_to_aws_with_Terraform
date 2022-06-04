@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "employee-s3" {
 }
 
 data "aws_iam_policy_document" "employee-iam-policy-doc" {
-  Statement {
+  statement {
     sid = "AllowS3ReadAccess"
 
     effect = "Allow"
