@@ -8,16 +8,16 @@ data "aws_iam_policy_document" "employee-iam-policy-doc" {
 
     effect = "Allow"
 
-    principal {
+    principals {
         type = "AWS"
         identifiers = ["arn:aws:iam::560007135118:role/S3DynamoDBFullAccessRole"]
     }
 
-    action = [
+    actions = [
         "s3:*",
     ]    
 
-    resource = [
+    resources = [
         "arn:aws:s3:::employee-photo-bucket-pr-101",
         "arn:aws:s3:::employee-photo-bucket-pr-101/*"
     ]
