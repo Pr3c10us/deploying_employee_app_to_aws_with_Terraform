@@ -8,7 +8,6 @@ resource "aws_instance" "employee-app" {
   vpc_security_group_ids = [aws_security_group.employee-sg.id]
   subnet_id = aws_subnet.employee-subnet["employee Public Subnet 1"].id
   iam_instance_profile = aws_iam_instance_profile.employee-iam-profile.name
-  key_name = "employee-kp"
 
   tags = {
     "Name" = "employee-app"
@@ -23,7 +22,7 @@ yum -y install python3 mysql
 pip3 install -r requirements.txt
 amazon-linux-extras install epel
 yum -y install stress
-export PHOTOS_BUCKET=employee-photo-bucket-pr-101
+export PHOTOS_BUCKET=employee-photo-bucket-pre-101
 export AWS_DEFAULT_REGION=us-east-2
 export DYNAMO_MODE=on
 FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80
