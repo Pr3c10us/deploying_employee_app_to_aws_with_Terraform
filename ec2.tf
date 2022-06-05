@@ -1,7 +1,7 @@
-resource "aws_iam_instance_profile" "employee-iam-profile" {
-  name = "employee-iam-profile"
-  role = "${aws_iam_role.S3DynamoDBFullAccessRole.name}"
-}
+# resource "aws_iam_instance_profile" "employee-iam-profile" {
+#   name = "employee-iam-profile"
+#   role = "${aws_iam_role.S3DynamoDBFullAccessRole.name}"
+# }
 resource "aws_instance" "employee-app" {
   ami = "ami-0fa49cc9dc8d62c84"
   instance_type = "t2.micro"
