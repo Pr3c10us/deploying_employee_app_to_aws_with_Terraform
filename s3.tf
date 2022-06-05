@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "employee-iam-policy-doc" {
 
     principals {
         type = "AWS"
-        identifiers = ["arn:aws:iam::560007135118:role/S3DynamoDBFullAccessRole"]
+        identifiers = ["arn:aws:iam::259023861827:role/S3DynamoDBFullAccessRole"]
     }
 
     actions = [
