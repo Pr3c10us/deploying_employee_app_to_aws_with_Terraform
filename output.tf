@@ -1,3 +1,3 @@
-output "stuffs" {
-  instance_dns = aws_instance.employee-app.public_dns
+output "instance_dns" {
+  value = aws_instance.employee-app.public_dns
 }
