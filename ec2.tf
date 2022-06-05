@@ -8,7 +8,6 @@ resource "aws_instance" "employee-app" {
   vpc_security_group_ids = [aws_security_group.employee-sg.id]
   subnet_id = aws_subnet.employee-subnet["employee Public Subnet 1"].id
   iam_instance_profile = aws_iam_instance_profile.employee-iam-profile.name
-  key_name = "employee-kp"
 
   tags = {
     "Name" = "employee-app"
