@@ -1,13 +1,13 @@
-# resource "aws_iam_instance_profile" "employee-iam-profile" {
-#   name = "employee-iam-profile"
-#   role = "${aws_iam_role.S3DynamoDBFullAccessRole.name}"
-# }
+resource "aws_iam_instance_profile" "employee-iam-profile" {
+  name = "employee-iam-profile"
+  role = "${aws_iam_role.S3DynamoDBFullAccessRole.name}"
+}
 resource "aws_instance" "employee-app" {
   ami = "ami-0fa49cc9dc8d62c84"
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.employee-sg.id]
   subnet_id = aws_subnet.employee-subnet["employee Public Subnet 1"].id
-#   iam_instance_profile = aws_iam_instance_profile.employee-iam-profile.name
+  iam_instance_profile = aws_iam_instance_profile.employee-iam-profile.name
   key_name = "employee-kp"
 
   tags = {
